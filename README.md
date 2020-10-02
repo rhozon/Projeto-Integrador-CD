@@ -5,4 +5,6 @@ Repo do exercicio do Projeto Integrador CD
 
 ***
 
+Acesse a página com [a resolução dos exercícios aqui](https://rhozon.github.io/selecaodeprodutosnor/index.html)
+
 Visite meu perfil em [rhozon.github.io](rhozon.github.io)
