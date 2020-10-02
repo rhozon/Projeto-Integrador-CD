@@ -1,0 +1,867 @@
+\documentclass{article}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[utf8]{inputenc}
+\usepackage{lscape}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+%==pacote marca texto
+\usepackage{soulutf8}%pacote de marca texto ( vide https://rlatex.wordpress.com/2017/02/10/efeito-de-marca-texto-e-sublinhado-colorido/ )
+\setulcolor{black}
+\sethlcolor{yellow}
+
+%use \hl{} para destacar texto ou \ul{} para sublinhar
+%fim do pacote de marca texto
+\usepackage{tikz}
+\newcommand{\roundpic}[4][]{
+  \tikz\node [circle, minimum width = #2,
+    path picture = {
+      \node [#1] at (path picture bounding box.center) {
+        \includegraphics[width=#3]{#4}};
+    }] {};}
+    
+\usepackage{indentfirst}
+\usepackage[a4paper,margin={1.2in,1.5in},vmargin={1.2in,1.5in}]{geometry}
+\geometry{paperwidth=210mm,paperheight=297mm,
+textwidth=150mm,textheight=210mm,
+top=23mm,bottom=23mm,
+left=23mm,right=23mm}
+\usepackage[colorlinks,linkcolor=blue,hyperindex]{hyperref}
+\usepackage[brazil]{babel}
+\usepackage{graphicx,color,wrapfig}
+\usepackage{multicol}
+%\usetikzlibrary{mindmap}
+%\pagestyle{empty}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[]{}
+\rhead{Tecnologia em Ciência de Dados: Cruzeiro do Sul virtual}
+\lhead{\thepage}
+\fancyfoot[]{}
+\renewcommand{\headrulewidth}{0.1pt}
+\usepackage{color,soul}
+\usepackage{color}
+\usepackage{listings}%pacote para literalizar os códigos do R no Latex
+\usepackage{xcolor}
+
+\usepackage[dvipsnames]{xcolor}
+
+\definecolor{mygray}{gray}{0.9}
+
+\definecolor{codegreen}{rgb}{0,0.5,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+%\definecolor{codeblue}{rgb}{0.48,0,0.72}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{mygray},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+%=========fim da instrução do listings
+\usepackage{xcolor}
+\usepackage[fixed]{fontawesome5}
+\usepackage{tcolorbox}
+\usepackage{comment}
+
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfdefinestyle{MyFrame}{%
+    linecolor=blue,
+    outerlinewidth=1pt,
+    roundcorner=40pt,
+    innertopmargin=\baselineskip,
+    innerbottommargin=\baselineskip,
+    innerrightmargin=10pt,
+    innerleftmargin=10pt,
+    backgroundcolor=gray!30!white}
+%============================================================
+\usepackage{setspace}
+%============================================================
+
+
+%pacote para inserir a logo na pagina de titulo
+\usepackage{titling}
+
+% set up \maketitle to accept a new item
+\predate{\begin{center}\placetitlepicture\large}
+\postdate{\par\end{center}}
+
+% commands for including the picture
+\newcommand{\titlepicture}[2][]{%
+  \renewcommand\placetitlepicture{%
+    \includegraphics[#1]{#2}\par\medskip
+  }%
+}
+\newcommand{\placetitlepicture}{} % initialization
+%fonte: https://tex.stackexchange.com/questions/214255/inserting-a-picture-in-a-title-page
+
+%============================================================
+
+
+%===pacote para imagem e fundo na pagina de titulo==========
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight,%
+keepaspectratio]{background.png}%
+\vfill
+}}}
+%fonte https://tex.stackexchange.com/questions/46280/how-to-create-a-background-image-on-title-page-with-latex
+%============================================================
+
+%-======pacorte para trademarks==============================
+\usepackage{textcomp}
+%fonte https://tex.stackexchange.com/questions/1676/how-to-get-good-looking-copyright-and-registered-symbols
+%-======pacorte para trademarks==============================
+
+
+\begin{document}
+
+
+%============================================================
+\AddToShipoutPicture*{\includegraphics[width=10cm,height=4cm]{logocruzeirodosul.png}}%do pacote para imagem de fundo capa
+
+
+\title{PROJETO INTEGRADOR DE COMPETÊNCIAS EM CIÊNCIA DE DADOS I - 40h\_Turma\_05\_102020}
+
+\author{\href{https://rhozon.github.io/}{Rodrigo Hermont Ozon\footnote{Economista e Mestre em Desenvolvimento Econômico pela UFPR.}}}
+
+\date{Outubro, 2020}
+
+\maketitle
+
+
+
+
+\thispagestyle{empty}
+%===========================================================
+\newpage
+
+\begin{mdframed}[style=MyFrame]
+
+\fbox{%
+\roundpic[xshift=-.00000095cm,yshift=-.0006cm]{3.8cm}{3cm}{me.jpg}%
+}
+
+
+\section*{Sobre o Autor:}
+
+
+\textit{Rodrigo Hermont Ozon, economista e apaixonado por econometria, pelas aplicações de modelos econômicos a problemas reais e cotidianos vivenciados na sociedade e na realidade das empresas.}
+
+
+\begin{flushleft}
+Seus contatos podem ser acessados em:
+
+\begin{itemize}
+\item \href{https://rhozon.github.io/}{\faGithub} \href{https://rhozon.github.io/}{Github}
+
+\item \href{https://www.linkedin.com/in/rodrigohermontozon/}{\faLinkedin} \href{https://www.linkedin.com/in/rodrigohermontozon/}{Linkedin} %
+\end{itemize}
+\end{flushleft}
+
+
+\end{mdframed}
+
+\vspace{9cm}
+
+
+
+\begin{abstract}
+Este documento apresenta a resolução dos exercícios do curso Tecnológico em Ciência de Dados da Universidade Cruzeiro do Sul virtual para a disciplina de Projeto Integrador de Competência em Ciência de Dados I. 
+
+A produção deste .pdf utiliza a prática de pesquisa reproduzível utilizando o \faRProject e pode ser feito completamente de forma gratuita na plataforma Overleaf.com. Caso você queira ver um tutorial de como começar a integrar a linguagem \LaTeX~com o \faRProject \fbox{ \href{https://www.linkedin.com/pulse/pr\%C3\%A1tica-letrada-de-data-science-com-latex-e-r-rodrigo-hermont-ozon/?articleId=6668963881102172160}{consulte esse artigo que eu postei no meu \faLinkedin}}
+
+Como exercício criei uma página na web escrita em RMarkdown contendo as interatividades gráficas para esses exercícios aqui propostos. Caso tenha interesse, visite minha página em \fbox{\href{https://rhozon.github.io/selecaodeprodutosnor/projetointegrador.html}{\textcolor{red}{meu perfil no Github \faGithub}}}
+
+
+
+\end{abstract}
+
+
+
+
+
+\thispagestyle{empty}
+%==============================================================
+\newpage
+
+.
+
+\vspace{22cm}
+À minha amada esposa, Idiane \textit{"Então o anjo do Senhor lhe apareceu, e lhe disse: O Senhor é contigo, homem valoroso."}
+
+\vspace{.15cm}
+\hspace{13cm}\href{https://www.bibliaonline.com.br/acf/jz/6/12}{Juízes 6:12}
+
+\thispagestyle{empty}
+
+%==========================================================
+
+\newpage
+\tableofcontents
+%\lstlistoflistings
+\listoffigures
+
+
+
+%\hspace{12cm}\includegraphics[widht=1.5cm,height=1.5cm]{erasmussign.png}
+\thispagestyle{headings}
+
+\newpage
+%====================================================
+\onehalfspacing %Para um espaçamento de 1,5
+%===================================================
+
+
+\begin{mdframed}
+
+
+\section*{Atenção:}
+
+Esse é um documento \LaTeX~ dinâmico, onde os \textit{chunks} de código R rodam dentro dele.
+
+O exercício de SQL (se fosse com dados reais) poderia ser rodado dentro do R, carregando o pacote RSQLite.
+
+
+Também utilizei o ambiente lstlisting para economizar tempo na compilação do documento:
+
+\begin{verbatim}
+\begin{lstlisting}[language=R]
+Os códigos R ficam todas dentro desse formato neste documento
+\end{lstlisting}
+\end{verbatim}
+
+\end{mdframed}
+
+
+
+
+\newpage
+
+
+
+%=======================================================================================================================================================================
+\section*{Introdução}
+%=======================================================================================================================================================================
+
+A disciplina de projeto integrador de competências visa, além de sistematizar os conhecimentos adquiridos, também desenvolver atitudes e estratégias de pensamento focadas na resolução de problemas práticos das áreas de futura atuação dos alunos, bem como proporcionar a transversalidade disciplinar utilizada na prática profissional no dia a dia.
+
+Não obstante, é uma valiosa prática andragógica que oferece a necessária vivência do ambiente de trabalho, fundamental para o amadurecimento e mediante aplicação dos conhecimentos em situações reais, abordando sempre problemas de cunho rigorosamente prático.
+
+Além disso, é de fundamental importância a integração entre as disciplinas, pois, no exercício da profissão, o discente estará exposto a desafios que projetam-se transversalmente às disciplinas e é importante saber a qual domínio pertence a solução e em quantas etapas esses desafios se dividem até que se encontre a resposta e a execução em fases mais simples e de seu domínio.
+
+O objetivo é utilizar e evoluir em relação às novas competências recém adquiridas visando sua fixação e otimização no que tangem as seguintes disciplinas: Modelagem de Dados, Análise de Dados Exploratória e Linguagem de Banco de Dados.
+
+Em conformidade ao descrito, logo a seguir serão passadas uma série de leituras de reforço que necessitarão de sua atenção e esforço para recordar e se preparar para os desafios dispostos em nossa trilha de aprendizagem.
+
+Também é bom lembrar que a língua mundialmente falada em tecnologia da informação é Inglês, portanto, é importante você estar estudando esse idioma para evoluir profissionalmente nesse mercado. Claro, você pode utilizar o tradutor da Google, mas é importante praticar e dominar o idioma.
+
+Colocamos links com ferramentas e leituras, cujas indicações são:
+
+Para tanto utilizaremos a linguagem R mundialmente usada para manipulação estatística de dados. Isso com certeza ajudará a dar maior confiança em sua jornada.
+
+Caso você ainda não tenha instalado, vamos fazer isso, porque você vai utilizar para realizar os exercícios. Vamos lá então:
+
+Disponível em: \href{https://www.r-project.org/}{https://www.r-project.org/} aqui você encontra tudo sobre a linguagem e se quiser o direcionamento para baixar o instalador.
+
+Link para baixar o instalador direto: Disponível em: \href{https://cran-r.c3sl.ufpr.br/}{ https://cran-r.c3sl.ufpr.br/}
+
+Levamos em conta que talvez você ainda não esteja familiarizado com a linguagem, então resolvemos lhe dar um reforço: Aqui você encontra muita documentação oficial para te ajudar: disponível em: \href{https://cran.r-project.org/manuals.html}{https://cran.r-project.org/manuals.html}
+
+
+Lembrando que apesar da linguagem de manipulação de dados R, temos que saber das fontes e de como as modelamos. Nesse tocante, a modelagem de dados é uma habilidade crucial para todo cientista de dados, esteja você fazendo projetos de pesquisa ou arquitetando um novo repositório para o armazenamento de dados em uma empresa. E, para isso, devemos lembrar que a modelagem de dados trata do processo de produzir um diagrama descritivo de relações entre vários tipos de informações que devem ser armazenadas em um banco de dados e cujo objetivo é criar o método mais eficiente de armazenar informações num banco de dados. Focaremos aqui no diagrama E-R (entidade/relacionamento), assim como a linguagem para manipulação de dados no banco de dados SQL, assim você poderá extrair e realizar junções de dados alvos para extração e submissão à linguagem R. Veja a leitura abaixo indicada na biblioteca virtual: 
+
+
+Para modelagem de dados E-R e linguagem SQL, recomendo a leitura de: MEDEIROS, L.F. Banco de Dados: Princípios e Prática. Curitiba: Ed. Intersaberes. 2013. Disponível na biblioteca virtual da Pearsons em:
+
+\fbox{\href{https://github.com/rhozon/SQL/raw/master/banco-de-dados-principios-e-pratica.pdf}{Acesse e baixe aqui: \faGithub}}
+
+Há uma série de ferramentas úteis em seu dia a dia para modelar dados de forma conceitual, uma das mais utilizadas é o Modelo BR, que você encontrará no seguinte link: 
+
+disponível em \href{https://sourceforge.net/projects/brmodelo30/}{https://sourceforge.net/projects/brmodelo30/}
+
+Você pode preferir baixar o Workbench do MySQL se tiver mais familiarizado, para tanto é só você seguir as instruções da página de download. Workbench oferece:
+
+\begin{itemize}
+    \item Design e modelagem de banco de dados
+    \item Desenvolvimento SQL
+    \item Administração de banco de dados
+    \item Migração de Banco de Dados: Disponível em: \href{https://dev.mysql.com/downloads/workbench/}{https://dev.mysql.com/downloads/workbench/}
+\end{itemize}
+
+\rule{15cm}{.02cm}
+
+%===================================================================================
+\section{Atividade I}
+%===================================================================================
+
+Você foi contratado pela empresa XPTO para a função de analista de dados. Como parte de seu trabalho, foi lhe confiada uma extração de dados contendo os seguintes valores: (25, 45, 28, 79, 74, 61, 12, 68, 93, 39, 100), sendo que cada valor na sua atual sequência atende pelos títulos: (alface, cenoura, pepino, chuchu, pimenta, couve, rúcula, cebola, alho, pimentão, alcachofra). Pediram para que você realize o seguinte, utilizando a linguagem R, e apresentar os resultados.
+
+\begin{enumerate}
+    \item Crie um gráfico de barras apresentando o resultado de cada item.
+    \item Liste os componentes da matriz dos dados.
+    \item Liste o resultado da soma dessa matriz.
+    \item Liste a média aritmética dessa matriz.
+    \item Liste o produto dos elementos dessa matriz.
+\end{enumerate}
+
+Instruções de envio
+
+Não envie arquivo .zip
+1 arquivo em PDF exibindo seu código;
+1 arquivo com o com o código em R;
+
+\rule{15cm}{.02cm}
+%===================================================================================
+\subsection{Resolução}
+%===================================================================================
+\rule{15cm}{.02cm}
+
+Carrego os vetores de dados numéricos e qualitativos (nomes das verduras)
+
+<< comment=NA >>=
+valores<-c(25, 45, 28, 79, 74, 61, 12, 68, 93, 39, 100)
+
+titulos<-c("alface","cenoura","pepino","chuchu","pimenta","couve","rúcula","cebola",
+"alho","pimentão","alcachofra")
+
+dados<-data.frame(titulos,valores) # Crio o conjunto de dados combinando titulos e valores
+
+dados # Mostra o dataframe
+
+str(dados) # Mostra a estrutura e o tipo de variaveis no dataset
+
+@
+
+\rule{15cm}{.02cm}
+
+% ==================================================================================
+\subsubsection{Crie um gráfico de barras apresentando o resultado de cada item.}
+% ==================================================================================
+
+Após informarmos ao \faRProject as variáveis, podemos criar um gráfico de barras:
+
+<<graf1, fig.pos="h", fig.height=4, fig.width=8, fig.cap="Gráfico de barras para valores e títulos">>=
+library(ggplot2) # Pacote do R para graficos estaticos de qualidade 
+
+ggplot(data=dados,aes(x=titulos,y=valores))+
+geom_bar(position = "dodge", stat="identity")+
+  geom_text(aes(label=valores), position=position_dodge(width=0.9), 
+  vjust=-0.25,  size=2.5) #+ 
+  
+#Insere os rotulos acima das barras de tamanho 2.5
+#  ggtitle("Gráfico de barras para valores e títulos")+
+#  theme(plot.title = element_text(hjust = 0.5)) # Ajusta o titulo do grafico em cima no meio
+@
+
+
+
+%===================================================================================
+\subsubsection{Liste os componentes da matriz dos dados.}
+%===================================================================================
+
+
+Para listarmos os componentes da matriz de dados, podemos simplesmente ordenar do maior para o menor:
+
+<< message=FALSE, comment=NA >>=
+library(dplyr) # Pacote para rodar as formulas com o operador pipe
+
+dados%>%
+group_by(titulos)%>%
+arrange(desc(valores))
+@
+
+Poderíamos refazer o gráfico de barras ordenado:
+
+<<graf2, fig.pos="h", fig.height=3, fig.width=8, fig.cap="Gráfico de barras ordenado para valores e títulos">>=
+ggplot(dados,aes(x= reorder(titulos,-valores),valores))+
+geom_bar(position="dodge",stat ="identity")+
+theme(axis.title.x=element_blank())+
+  geom_text(aes(label=valores), position=position_dodge(width=0.9),
+  vjust=-0.25,  size=2.5)#+ 
+  
+# Insere os rotulos acima das barras de tamanho 2.5
+#ggtitle("Gráfico de barras ordenado para valores e títulos")+
+# theme(plot.title = element_text(hjust = 0.5))# Centraliza o titulo do grafico acima
+
+@
+
+\newpage
+% ==================================================================================
+\subsubsection{Liste a soma e a média aritmética dessa matriz}
+% ==================================================================================
+
+Para somarmos e também para obtermos a média aritmética do vetor de valores simplesmente fazemos
+
+<< comment=NA >>=
+sum(dados$valores) # Soma
+
+mean(dados$valores) # Media aritmetica
+
+round(mean(dados$valores),0) # Valores arredondados pois os valores sao discretos (inteiros)
+
+@
+
+Ou então aqui pelo \LaTeX~ pelo pacote de integração com o \faRProject knitr, simplesmente \Sexpr{sum(dados$valores)}
+
+Para inserir o valor da soma no texto utilize o comando:
+
+\begin{verbatim}
+    o valor da soma eh \ Sexpr{sum(dados$valores)} ...
+    
+    a média é de \ Sexpr{mean(dados$valores))} ...
+\end{verbatim}
+
+Lembrando a contrabarra (backslash) precisa ser junto ao comando Sexpr.
+
+% ==================================================================================
+\subsubsection{Liste o produto dos elementos da matriz}
+% ==================================================================================
+
+Vamos obter o multiplicatório do vetor de valores, que é o mesmo que:
+
+$$
+\displaystyle\prod_{i=1}^{11}\mbox{valores}_{i}= \mbox{valor}_{1}\times\mbox{valor}_{2}\times\ldots\times\mbox{valor}_{11}
+$$
+
+ou seja, a notação $\displaystyle\prod_{i=1}^{11}$ lê-se que do primeiro $i=1$, índice de contagem da multiplicação até o $11^o$ multiplique a variável valores.
+
+
+<< comment=NA  >>=
+print(prod(dados$valores), digits = 20) # Especifico o numero de digitos para numeros grandes
+
+@
+
+Ou então podemos multiplicar o valor do alface com o da cenoura fazendo:
+
+<< comment=NA >>=
+
+alfacexcenoura<-dados[1,2]*dados[2,2]
+
+alfacexcenoura
+@
+
+Sendo que a instrução [1,2] significa primeira linha, da segunda coluna.
+
+Se quiséssemos fazer o produto de todos os elementos do dataset, faríamos:
+
+alface $\times 25$, cenoura $\times 45$, pepino $\times 28$, chuchu $\times 79$ ...
+
+Ou seja, o vetor de nomes (títulos) multiplicado pelo vetor numérico de valores.
+
+<< message=FALSE, warning=FALSE, comment=NA>>=
+library(tidyr)
+library(tidyverse)
+
+multiplica.elementos<-paste(dados$titulos,"*",dados$valores)
+
+multiplica.elementos # Mostra o resultado 
+
+as.tibble(multiplica.elementos) # Mostra o resultado como um vetor
+
+@
+\newpage
+
+%===================================================================================
+\section{Atividade II}
+%===================================================================================
+
+Você trabalha há algum tempo como analista de dados numa empresa contratada pela Formula-1. O cientista de dados chefe pediu para que você, baseando-se no diagrama E-R abaixo, elabore os seguintes comandos SQL para satisfazer seus pedidos:
+
+\includegraphics[width=15cm]{PICCDados_UNI01_02.jpg}
+
+\textcolor{red}{Obs.: (a dica aqui é que, para elaborar os comandos SQL, você não precisa acessar a base de dados, já que possui a modelagem (diagrama) que indica as chaves PK e FK, bem como os atributos de cada tabela e seus relacionamentos.)}
+
+1. Exibir as equipes que são do país “Alemanha”.
+
+2. Exibir quais os pilotos que são do mesmo país do piloto “Max Chilton”.
+
+3. Selecionar os pilotos que são da equipe “McLaren-Mercedes”.
+
+\rule{15cm}{.02cm}
+%==============================================================================
+\subsection{Resolução}
+%==============================================================================
+\rule{15cm}{.02cm}
+
+Poderíamos dar as instruções diretamente do \faRProject usando o SQLite, carregando primeiro os pacotes:
+
+<< message=FALSE>>=
+library(RSQLite)
+library(DBI)
+@
+
+Como aqui não há necessidade de usarmos os comandos para conectarmos ao banco de dados estruturado, (deixo o chunk somente com os comentários de comandos)
+
+\begin{lstlisting}[language=R]
+conn <- dbConnect(SQLite(), "test .db")
+
+dbListTables(conn) # Mostra todas as bases de dados disponiveis
+
+conn
+\end{lstlisting}
+
+\newpage
+%===================================================================================
+\subsubsection{Exibir as equipes que são do país “Alemanha”.}
+%===================================================================================
+
+Vamos exibir com comandos do SQLite quais as equipes são da Alemanha: 
+
+\begin{lstlisting}[language=R]
+
+query <- "SELECT NM_EQUIPE
+          FROM TB_EQUIPE
+          INNER JOIN TB_PAIS ON NM_PAIS=Alemanha"
+
+result <- dbGetQuery(conn, query)
+str(result)
+
+\end{lstlisting}
+
+
+%===================================================================================
+\subsubsection{Exibir quais os pilotos que são do mesmo país do piloto “Max Chilton”}
+%===================================================================================
+
+\begin{lstlisting}[language=R]
+
+query<-"SELECT NM_PILOTO
+        FROM TB_PILOTO
+        INNER JOIN TB_PAIS
+        WHERE NM_PILOTO='Max Chilton'"
+        
+result <- dbGetQuery(conn, query)
+
+result
+
+\end{lstlisting}
+
+
+%===================================================================================
+\subsubsection{Selecionar os pilotos que são da equipe “McLaren-Mercedes”}
+%===================================================================================
+
+\begin{lstlisting}[language=R]
+
+query<-"SELECT NM_PILOTO FROM TB_PILOTO
+        INNER JOIN TB_EQUIPE ON NM_EQUIPE_id='McLaren-Mercedes'"
+
+result <- dbGetQuery(conn, query)
+
+result
+
+\end{lstlisting}
+
+
+\newpage
+
+%=================================================================================
+\section{Atividade III}
+%=================================================================================
+
+Você trabalha numa empresa de manipulação de dados e como analista de dados está acostumado a receber os mais diversos tipos de pedidos, desde procedures em SQL, rotinas de ETL e, também, como nesse caso, conjuntos de dados para gerar gráficos e entregar à área de marketing que está desenvolvendo um importante projeto, comparando faixas de markup entre produtos de concorrentes. Então, eles lhe passaram dois conjuntos de dados a saber:
+
+x = (5,5,5,13,7,11,11,9,8,9)
+
+y = (11,8,4,5,9,5,10,5,4,10)
+
+Ambos possuem 10 elementos cada, representados por 2 vetores.
+
+Pede-se que você prepare e apresente a visualização:
+
+1. Utilize a linguagem R para plotar X e Y em gráficos diferentes utilizando BOXPLOT.
+
+2. Usando R, plote a comparação de X e Y no mesmo gráfico utilizando BOXPLOT.
+
+
+Obs.: como dica importante, aqui está o entendimento desse importante tipo de gráfico BOXPLOT que serve para a exibição de distribuição, recorde aqui a definição:
+
+\begin{center}
+\includegraphics[width=6cm]{PICCDados_UNI01_03.jpg}
+\end{center}
+
+\rule{15cm}{.02cm}
+%==================================================================================
+\subsection{Resolução}
+%==================================================================================
+\rule{15cm}{.02cm}
+
+Começo declarando os conjuntos de dados
+
+<<comment=NA>>=
+x <- c(5,5,5,13,7,11,11,9,8,9)
+
+y <- c(11,8,4,5,9,5,10,5,4,10)
+
+xy<-data.frame(x,y)
+
+xy
+@
+
+
+
+
+%=================================================================================
+\subsubsection{Utilize a linguagem R para plotar X e Y em gráficos diferentes utilizando BOXPLOT.}
+%=================================================================================
+
+<<graf3, fig.pos="h", fig.height=4, fig.width=8, fig.cap="Boxplots x e y", message=FALSE, warning=FALSE>>=
+
+require(gridExtra)
+
+x<-ggplot(data=xy,aes(x="",y=x))+
+geom_boxplot()+
+theme(axis.title.x=element_blank())
+
+y<-ggplot(data=xy,aes(x="",y=y))+
+geom_boxplot()+
+theme(axis.title.x=element_blank())
+
+grid.arrange(x, y, ncol=2)
+
+@
+
+O que também pode ser feito sem o pacote ggplot2:
+
+<<graf4, fig.pos="h", fig.height=4, fig.width=8, fig.cap="Boxplots x e y", message=FALSE, warning=FALSE>>=
+par(mfrow=c(1,2))
+
+boxplot.x<-boxplot(xy$x, main="Boxplot de X")
+
+boxplot.y<-boxplot(xy$y, main="Boxplot de Y")
+
+@
+
+\newpage
+A leitura dos boxplots pode ser resumida com o sumário estatístico para a mediana, máximo, mínimo, primeiro e terceito quartil:
+
+<<comment=NA>>=
+summary(xy)
+@
+
+A amplitude interquartil, pode ser facilmente obtida:
+
+<<comment=NA>>=
+IQR.x<-quantile(xy$x,probs=0.75)-quantile(xy$x,probs=0.25)
+
+IQR.y<-quantile(xy$y,probs=0.75)-quantile(xy$y,probs=0.25)
+
+tibble(IQR.x,IQR.y)
+
+@
+
+\newpage
+\rule{15cm}{.02cm}
+%==================================================================================
+\subsubsection{Usando R, plote a comparação de X e Y no mesmo gráfico utilizando BOXPLOT.}
+%================================================================================
+
+<<graf5, fig.pos="h", fig.height=4, fig.width=6, fig.cap="Boxplot x e y", message=FALSE, warning=FALSE>>=
+ggplot(xy,aes(x=x,y=y))+
+geom_boxplot()
+@
+
+Para facilitar a visualização das distribuições plotamos as densidades kernel, que é uma forma não paramétrica de estimar a função de densidade de probabilidade de uma variável aleatória:
+
+<<graf6, fig.pos="h", fig.height=4, fig.width=8, fig.cap="Densidades Kernel de X e de Y", message=FALSE>>=
+
+par(mfrow=c(1,2))
+
+densx <- density(xy$x,kernel="epanechnikov")
+
+densy<- density(xy$y,kernel="epanechnikov")
+
+densidades<-c(densx,densy)
+
+plot(densx) 
+
+plot(densy)
+
+
+
+@
+
+\newpage
+\rule{15cm}{.02cm}
+%===================================================================================
+\section{Atividade IV}
+%===================================================================================
+
+Como cientista de dados jr, trabalhando no IBGE, foi lhe passada uma amostra de dados retirada de um SGBD do CENSO, na forma de uma matriz, onde a primeira linha contém o nome dos atributos para facilitar sua identificação e, após isso, 6 linhas contendo alguns dados amostrais de uma população qualquer.
+
+Segue a tabela:
+
+% Table generated by Excel2LaTeX from sheet 'Plan3'
+\begin{table}[htbp]
+  \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+    \toprule
+    \hline\hline
+    Id    & Turma & Sexo  & Idade & Altura & Peso  & Filhos & Fuma  & Toler & Exerc & Cine  & OpCine & TV    & OpTV \\
+    \hline\hline
+    \midrule
+    1     & A     & F     & 17    & 1.6   & 60.5  & 2     & NAO   & P     & 0     & 1     & B     & 16    & R \\
+    \midrule
+    \hline
+    2     & A     & F     & 18    & 1.69  & 55    & 1     & NAO   & M     & 0     & 1     & B     & 7     & R \\
+    \midrule
+    \hline
+    3     & A     & M     & 18    & 1.85  & 72.8  & 2     & NAO   & P     & 5     & 2     & M     & 15    & R \\
+    \midrule
+        \hline
+    4     & A     & M     & 25    & 1.85  & 80.9  & 2     & NAO   & P     & 5     & 2     & B     & 20    & R \\
+    \midrule
+        \hline
+    5     & A     & F     & 19    & 1.58  & 55    & 1     & NAO   & M     & 2     & 2     & B     & 5     & R \\
+    \midrule
+        \hline
+    6     & A     & M     & 19    & 1.76  & 60    & 3     & NAO   & M     & 2     & 1     & B     & 2     & R \\
+    \bottomrule
+        \hline
+    \end{tabular}%
+  \label{tab:addlabel}%
+\end{table}%
+
+
+Seu gerente pediu para que você, a partir desses dados, lhe passe, utilizando a linguagem R, as seguintes respostas:
+
+1. Qual a média IMC dessa pequena amostra?
+
+2. Boxplot comparando a peso M, peso Fe peso geral no mesmo gráfico.
+
+3. Boxplot da altura geral.
+
+\textcolor{red}{Obs.: dica, a formula do IMC é a sigla para Índice de Massa Corporal, utilizada para classificar o peso do indivíduo em relação à sua altura e assim indicar se está dentro do peso ideal, acima ou abaixo do peso normal.}
+
+
+\textcolor{red}{IMC = peso ÷ (Altura x Altura)}
+
+
+\textcolor{red}{Há uma tabela para sabermos se o indivíduo está dentro ou fora dos padrões, mas isso não é importante nesse momento. Obter a medida sim!}
+
+
+\rule{15cm}{.02cm}
+%=================================================================================
+\subsection{Resolução}
+%=================================================================================
+
+
+Primeiramente carrego a tabela para dentro do R: \href{https://raw.githubusercontent.com/rhozon/datasets/master/AtividadeIV.csv}{(você baixar a tabela aqui)}
+
+<<comment=NA>>=
+tabela<-read.csv(file="AtividadeIV.csv",head=TRUE,sep=";")
+
+str(tabela) # Checo se ele leu corretamente o dataset
+
+@
+
+
+%=================================================================================
+\subsubsection{Qual a média IMC dessa pequena amostra?}
+%=================================================================================
+
+Primeiramente, precisamos criar a variável IMC:
+
+<<comment=NA>>=
+tabela<-tabela%>%
+    mutate(IMC=Peso/Altura^2) #variavel IMC criada e inserida na tabela
+
+str(tabela)
+@
+
+Calculamos a média:
+
+<<comment=NA>>=
+mean(tabela$IMC)
+
+@
+
+\rule{15cm}{.02cm}
+%=================================================================================
+\subsubsection{Boxplot comparando a peso M, peso Fe peso geral no mesmo gráfico.}
+%=================================================================================
+
+
+<<graf7, fig.pos="h", fig.height=4, fig.width=8, fig.cap="Boxplot comparativo de peso x sexo x peso geral (média(peso))", message=FALSE, warning=FALSE>>=
+
+ggplot(data=tabela,aes(x=Sexo,y=Peso, fill=mean(Peso)))+
+geom_boxplot()+
+geom_jitter(shape=5, position=position_jitter(0.2))
+
+@
+
+Ao observarmos as bolinhas geradas pela instrução jitter temos uma boa noção da dispersão dos pesos de uma maneira mais geral.
+
+\newpage
+%=================================================================================
+\subsubsection{Boxplot da altura geral}
+%=================================================================================
+
+<<graf8, fig.pos="h", fig.height=4, fig.width=6, fig.cap="Boxplot da Altura", message=FALSE, warning=FALSE>>=
+
+ggplot(tabela,aes(x="",y=Altura))+
+geom_boxplot()+
+geom_jitter(shape=5, position=position_jitter(0.2))+# jitter para pontos sem sobreposicao
+scale_color_grey()
+@
+
+
+
+
+
+%===========================================================================
+\newpage
+%===========================================================================
+
+\begin{thebibliography}{99}
+
+\bibitem{gujarati} Gujarati, D.,N. \textbf{Basic Econometrics}, fourth edition, McGraw-HiII/lrwin, 2003.
+
+\bibitem{overleaf} Overleaf: Online \LaTeX Editor. Disponível em Overleaf.com 
+
+Ozon, R.,H. \href{http://leg.ufpr.br/doku.php/projetos:ehlers:volprev}{\textbf{Modelagem de Volatilidade em Séries Financeiras}, \textit{in} Wiki do Laboratório de Geoestatística e Informação, LEG/UFPR.}
+
+Ozon, R.H. \href{https://rhozon.github.io/selecaodeprodutosnor/cotacoes.html}\textbf{{Análise econométrica em tempo real: Modelos família ARCH para dados financeiros} \textit{in} rhozon.github.io .}
+
+\bibitem{xie} Xie, Y. \textbf{Dynamic Documents with R and knitr} 2nd edition, 2015.
+
+
+\end{thebibliography}
+%===========================================================================
+
+
+
+
+
+
+
+
+
+%===================================================
+\end{document}
